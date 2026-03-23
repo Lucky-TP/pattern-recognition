@@ -96,8 +96,7 @@ Properties:
   • (cA)ᵀ = cAᵀ
 """)
 
-    A = np.array([[1, 2, 3],
-                  [4, 5, 6]])
+    A = np.array([[-0.79], [0.89]])
 
     print_matrix("A (2×3)", A)
     print_matrix("Aᵀ (3×2)", A.T)

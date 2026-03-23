@@ -123,11 +123,11 @@ def compute_glcm_step_by_step(image, d, angle, levels=4):
 def main():
     # Define the image
     I = np.array([
-        [0, 1, 2, 2, 3],
-        [1, 2, 0, 2, 0],
-        [3, 0, 3, 2, 1],
-        [1, 2, 2, 2, 3],
-        [0, 0, 1, 1, 2]
+        [3, 1, 2, 2, 3],
+        [3, 2, 0, 2, 0],
+        [1, 0, 3, 2, 1],
+        [1, 2, 0, 2, 3],
+        [3, 0, 0, 1, 3]
     ])
 
     print("=" * 70)
@@ -164,7 +164,7 @@ This makes the GLCM matrix SYMMETRIC (GLCM[i,j] contributes equally as GLCM[j,i]
         print(f"GLCM for θ = {angle}° (counting both {angle}° and {angle+180}° directions)")
         print("=" * 70)
 
-        glcm, pairs = compute_glcm_step_by_step(I, d=1, angle=angle, levels=4)
+        glcm, pairs = compute_glcm_step_by_step(I, d=2, angle=angle, levels=4)
 
         print(f"\n  All pairs combined: {pairs}")
         print(f"  Total pairs: {len(pairs)}")
@@ -232,11 +232,14 @@ Equivalently: For each horizontally adjacent pair, count BOTH (a,b) and (b,a)
     print("=" * 70)
 
     for angle in angles:
-        glcm = compute_glcm(I, d=1, angle=angle, levels=4)
+        glcm = compute_glcm(I, d=2, angle=angle, levels=4)
         print(f"\nP({angle}°):")
         print("     j=0  j=1  j=2  j=3")
+        each_sum = 0
         for i in range(4):
             print(f"i={i}  {glcm[i, 0]:3d}  {glcm[i, 1]:3d}  {glcm[i, 2]:3d}  {glcm[i, 3]:3d}")
+            each_sum += glcm[i, 0] + glcm[i, 1] + glcm[i, 2] + glcm[i, 3]
+        print("sum:",each_sum)
 
 
 if __name__ == "__main__":
