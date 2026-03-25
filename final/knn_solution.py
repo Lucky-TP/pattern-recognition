@@ -128,7 +128,8 @@ def knn_classifier():
     class_counts = Counter(neighbor_classes)
     predicted_class = class_counts.most_common(1)[0][0]
 
-    print(f"\n  Vote count: {{{int(k): int(v) for k, v in class_counts.items()}}}")
+    vote_dict = {int(cls): int(cnt) for cls, cnt in class_counts.items()}
+    print(f"\n  Vote count: {vote_dict}")
     print(f"\n  *** Prediction: Class ω_{int(predicted_class)} ***")
 
     # ===== Step 6: k=3 Classification =====
@@ -147,7 +148,8 @@ def knn_classifier():
 
     # Majority vote
     class_counts = Counter(neighbor_classes)
-    print(f"\n  Vote count: {{{int(k): int(v) for k, v in class_counts.items()}}}")
+    vote_dict = {int(cls): int(cnt) for cls, cnt in class_counts.items()}
+    print(f"\n  Vote count: {vote_dict}")
 
     predicted_class = class_counts.most_common(1)[0][0]
 
@@ -171,7 +173,8 @@ def knn_classifier():
 
     # Majority vote
     class_counts = Counter(neighbor_classes)
-    print(f"\n  Vote count: {{{int(k): int(v) for k, v in class_counts.items()}}}")
+    vote_dict = {int(cls): int(cnt) for cls, cnt in class_counts.items()}
+    print(f"\n  Vote count: {vote_dict}")
 
     predicted_class = class_counts.most_common(1)[0][0]
 
