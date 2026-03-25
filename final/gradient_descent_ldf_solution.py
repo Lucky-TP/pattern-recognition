@@ -184,19 +184,19 @@ Single Sample Rule:
 
     print(f"""
 Data:
-  ω₁: {[list(x) for x in X1]}
-  ω₂: {[list(x) for x in X2]}
+  ω₁: {X1.tolist()}
+  ω₂: {X2.tolist()}
 
 Normalized Samples (y = label × [1, x]^T):
-  {[list(y) for y in Y1]} (ω₁)
-  {[list(y) for y in Y2]} (ω₂)
+  {Y1.tolist()} (ω₁)
+  {Y2.tolist()} (ω₂)
 
 Initial: a(1) = [0, 0, 0, 0]^T
 Learning Rate: η = 1
 
 Update Rule: a(k+1) = a(k) + η × y_i  (if a^T × y_i ≤ 0)
 
-Final Weight: a = {a}
+Final Weight: a = {a.tolist()}
 
 Decision Boundary:
   {a[0]} + {a[1]}x₁ + {a[2]}x₂ + {a[3]}x₃ = 0

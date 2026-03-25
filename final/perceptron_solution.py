@@ -60,8 +60,8 @@ def perceptron_algorithm():
         else:
             class2_points.append(x)
 
-    print(f"\n  Class ω₁ (y = -1): {[tuple(x) for x in class1_points]}")
-    print(f"  Class ω₂ (y = +1): {[tuple(x) for x in class2_points]}")
+    print(f"\n  Class ω₁ (y = -1): {[tuple(int(v) for v in x) for x in class1_points]}")
+    print(f"  Class ω₂ (y = +1): {[tuple(int(v) for v in x) for x in class2_points]}")
 
     # ===== Step 2: Initialize Weights =====
     print("\n" + "="*70)
@@ -196,8 +196,8 @@ def perceptron_algorithm():
 
     print(f"""
 Training Data:
-  Class ω₁ (y=-1): {class1_points}
-  Class ω₂ (y=+1): {class2_points}
+  Class ω₁ (y=-1): {[tuple(int(v) for v in x) for x in class1_points]}
+  Class ω₂ (y=+1): {[tuple(int(v) for v in x) for x in class2_points]}
 
 Final Model:
   Weights: w = [{w[0]:.2f}, {w[1]:.2f}]^T

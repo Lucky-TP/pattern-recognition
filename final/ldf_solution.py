@@ -257,7 +257,7 @@ Classify: x → argmax_i g_i(x)
     print("-" * 50)
     for c in [1, 2, 3]:
         idx = y_multi == c
-        print(f"  Class ω_{c}: {[tuple(x) for x in X_multi[idx]]}")
+        print(f"  Class ω_{c}: {[tuple(int(v) for v in x) for x in X_multi[idx]]}")
 
     # Train one-vs-rest classifiers
     print("\n--- Training One-vs-Rest Classifiers ---")

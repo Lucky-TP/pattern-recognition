@@ -67,8 +67,8 @@ def cross_validation():
     print("\nFold assignments:")
     print("-" * 50)
     for i, fold in enumerate(folds):
-        samples = [(X[j], y[j]) for j in fold]
-        print(f"  Fold {i+1}: indices {fold} → {samples}")
+        samples = [(int(X[j]), int(y[j])) for j in fold]
+        print(f"  Fold {i+1}: indices {[f+1 for f in fold]} → {samples}")
 
     # ===== Step 3: K-Fold Iterations =====
     print("\n" + "="*70)
@@ -98,13 +98,13 @@ def cross_validation():
         train_X = X[train_indices]
         train_y = y[train_indices]
 
-        print(f"\nTraining set: indices {train_indices}")
-        print(f"  X_train = {list(train_X)}")
-        print(f"  y_train = {list(train_y)}")
+        print(f"\nTraining set: indices {[idx+1 for idx in train_indices]}")
+        print(f"  X_train = {[int(x) for x in train_X]}")
+        print(f"  y_train = {[int(y) for y in train_y]}")
 
-        print(f"\nTest set (Fold {i+1}): indices {test_indices}")
-        print(f"  X_test = {list(test_X)}")
-        print(f"  y_test = {list(test_y)}")
+        print(f"\nTest set (Fold {i+1}): indices {[idx+1 for idx in test_indices]}")
+        print(f"  X_test = {[int(x) for x in test_X]}")
+        print(f"  y_test = {[int(y) for y in test_y]}")
 
         print(f"\nTraining classifier on {len(train_indices)} samples...")
         print(f"Testing on {len(test_indices)} samples...")

@@ -128,8 +128,8 @@ def knn_classifier():
     class_counts = Counter(neighbor_classes)
     predicted_class = class_counts.most_common(1)[0][0]
 
-    print(f"\n  Vote count: {dict(class_counts)}")
-    print(f"\n  *** Prediction: Class ω_{predicted_class} ***")
+    print(f"\n  Vote count: {{{int(k): int(v) for k, v in class_counts.items()}}}")
+    print(f"\n  *** Prediction: Class ω_{int(predicted_class)} ***")
 
     # ===== Step 6: k=3 Classification =====
     print("\n" + "="*70)
@@ -147,12 +147,12 @@ def knn_classifier():
 
     # Majority vote
     class_counts = Counter(neighbor_classes)
-    print(f"\n  Vote count: {dict(class_counts)}")
+    print(f"\n  Vote count: {{{int(k): int(v) for k, v in class_counts.items()}}}")
 
     predicted_class = class_counts.most_common(1)[0][0]
 
-    print(f"\n  *** Prediction: Class ω_{predicted_class} ***")
-    print(f"      (Class ω_{predicted_class} has {class_counts[predicted_class]} votes, "
+    print(f"\n  *** Prediction: Class ω_{int(predicted_class)} ***")
+    print(f"      (Class ω_{int(predicted_class)} has {class_counts[predicted_class]} votes, "
           f"which is the majority)")
 
     # ===== Step 7: k=5 Classification =====
@@ -171,11 +171,11 @@ def knn_classifier():
 
     # Majority vote
     class_counts = Counter(neighbor_classes)
-    print(f"\n  Vote count: {dict(class_counts)}")
+    print(f"\n  Vote count: {{{int(k): int(v) for k, v in class_counts.items()}}}")
 
     predicted_class = class_counts.most_common(1)[0][0]
 
-    print(f"\n  *** Prediction: Class ω_{predicted_class} ***")
+    print(f"\n  *** Prediction: Class ω_{int(predicted_class)} ***")
 
     # ===== Step 8: Effect of k =====
     print("\n" + "="*70)

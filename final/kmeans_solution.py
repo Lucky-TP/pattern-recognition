@@ -119,7 +119,7 @@ def kmeans_clustering():
             else:
                 new_centroids[j] = centroids[j]
 
-            print(f"\nCluster C_{j+1} points: {[tuple(x) for x in cluster_points]}")
+            print(f"\nCluster C_{j+1} points: {[tuple(int(v) for v in x) for x in cluster_points]}")
             if len(cluster_points) > 0:
                 print(f"  New μ_{j+1} = mean of cluster points")
                 print(f"        = (1/{len(cluster_points)}) × Σ x_i")

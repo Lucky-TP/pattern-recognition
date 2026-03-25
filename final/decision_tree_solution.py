@@ -188,9 +188,9 @@ def decision_tree():
             right_y = y[right_mask]
 
             print(f"\n  Split at x{feature_idx + 1} ≤ {split_value}:")
-            print(f"    Left (x{feature_idx + 1} ≤ {split_value}): {len(left_y)} samples, classes = {list(left_y)}")
+            print(f"    Left (x{feature_idx + 1} ≤ {split_value}): {len(left_y)} samples, classes = {[int(v) for v in left_y]}")
             print(f"      H(left) = {entropy(left_y):.4f}")
-            print(f"    Right (x{feature_idx + 1} > {split_value}): {len(right_y)} samples, classes = {list(right_y)}")
+            print(f"    Right (x{feature_idx + 1} > {split_value}): {len(right_y)} samples, classes = {[int(v) for v in right_y]}")
             print(f"      H(right) = {entropy(right_y):.4f}")
             print(f"    Information Gain = {root_entropy:.4f} - "
                   f"({len(left_y)}/{n_total})×{entropy(left_y):.4f} - "
