@@ -154,7 +154,22 @@ d) If d=4 features, how many features should be considered
 
 ---
 
-### Example 11: Cross-Validation
+### Example 11.5: Classification Error Estimation
+**Problem:**
+```
+A classifier is evaluated on a test set of 100 samples.
+60 samples are correctly classified.
+
+a) Calculate the error rate
+b) Calculate the 95% confidence interval
+c) If we use 10 bootstrap iterations with average OOB error = 0.25
+   and training error = 0.10, calculate the .632 bootstrap estimate
+```
+**→ Run:** `error_estimation_solution.py`
+
+---
+
+### Example 12: Cross-Validation
 **Problem:**
 ```
 Dataset: 12 samples
@@ -169,7 +184,25 @@ c) If fold accuracies are: 0.8, 0.9, 0.7, 0.85
 
 ---
 
-### Example 0: Linear Discriminant Function (LDF)
+### Example 0: Decision Tree
+**Problem:**
+```
+Given training data:
+  Sample 1: x₁=1, x₂=1, Class=0
+  Sample 2: x₁=1, x₂=2, Class=0
+  Sample 3: x₁=2, x₂=1, Class=0
+  Sample 4: x₁=4, x₂=4, Class=1
+  Sample 5: x₁=5, x₂=5, Class=1
+  Sample 6: x₁=5, x₂=6, Class=1
+
+Build a decision tree using Information Gain (Entropy).
+Find the best split at the root node.
+```
+**→ Run:** `decision_tree_solution.py`
+
+---
+
+### Example 0.5: Linear Discriminant Function (LDF)
 **Problem:**
 ```
 Given two classes with means μ₁=(2,2) and μ₂=(6,6),
@@ -185,7 +218,30 @@ c) Classify the query point (4,4)
 
 ## Chapter 3: Classification & Clustering
 
-### 0. Linear Discriminant Function (LDF)
+### 0. Decision Tree
+**File:** `decision_tree_solution.py`
+
+**When to use:**
+- Building decision trees from data
+- Information Gain calculation (Entropy)
+- Gini Impurity calculation
+- Finding best split points
+
+**Key Formulas:**
+```
+Entropy: H(D) = -Σ p_i × log₂(p_i)
+Gini: Gini(D) = 1 - Σ p_i²
+Information Gain: IG(D,A) = H(D) - Σ (|D_v|/|D|) × H(D_v)
+```
+
+**Run:**
+```bash
+python decision_tree_solution.py
+```
+
+---
+
+### 1. Linear Discriminant Function (LDF)
 **File:** `ldf_solution.py`
 
 **When to use:**
@@ -445,7 +501,7 @@ python random_forest_solution.py
 
 ---
 
-### 11. K-Fold Cross-Validation
+### 12. K-Fold Cross-Validation
 **File:** `cross_validation_solution.py`
 
 **When to use:**
@@ -464,6 +520,30 @@ Test size per fold = n/k
 **Run:**
 ```bash
 python cross_validation_solution.py
+```
+
+---
+
+### 13. Classification Error Estimation
+**File:** `error_estimation_solution.py`
+
+**When to use:**
+- Holdout method
+- Bootstrap error estimation
+- .632 Bootstrap
+- Confidence intervals for error rate
+
+**Key Formulas:**
+```
+Holdout Error: E = errors / n_test
+Bootstrap: Average OOB error over B iterations
+.632 Bootstrap: E_.632 = 0.368×E_train + 0.632×E_boot
+95% CI: E ± 1.96 × sqrt(E(1-E)/n)
+```
+
+**Run:**
+```bash
+python error_estimation_solution.py
 ```
 
 ---
