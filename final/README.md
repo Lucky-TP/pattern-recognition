@@ -169,7 +169,46 @@ c) If fold accuracies are: 0.8, 0.9, 0.7, 0.85
 
 ---
 
+### Example 0: Linear Discriminant Function (LDF)
+**Problem:**
+```
+Given two classes with means μ₁=(2,2) and μ₂=(6,6),
+and shared covariance matrix Σ = [[1,0],[0,1]].
+
+a) Derive the Linear Discriminant Function g(x) = w^T*x + w_0
+b) Find the decision boundary
+c) Classify the query point (4,4)
+```
+**→ Run:** `ldf_solution.py`
+
+---
+
 ## Chapter 3: Classification & Clustering
+
+### 0. Linear Discriminant Function (LDF)
+**File:** `ldf_solution.py`
+
+**When to use:**
+- Linear decision boundary classification
+- Gaussian classes with equal covariance
+- Multi-class one-vs-rest classification
+- Finding weight vector w and bias w_0
+
+**Key Formulas:**
+```
+Decision function: g(x) = w^T * x + w_0
+For Gaussian + equal covariance:
+  w = Σ⁻¹(μ₁ - μ₂)
+  w_0 = -½(μ₁ + μ₂)^T * Σ⁻¹(μ₁ - μ₂)
+Decision: sign(g(x))
+```
+
+**Run:**
+```bash
+python ldf_solution.py
+```
+
+---
 
 ### 1. k-Nearest Neighbors (k-NN)
 **File:** `knn_solution.py`
@@ -433,6 +472,7 @@ python cross_validation_solution.py
 
 | If the question asks about... | Run this file |
 |------------------------------|---------------|
+| Linear decision boundary, w^T*x + w_0 | `ldf_solution.py` |
 | Distance calculation, nearest neighbors | `knn_solution.py` |
 | Linear classifier weight updates | `perceptron_solution.py` |
 | Centroids, cluster assignment | `kmeans_solution.py` |
@@ -451,6 +491,7 @@ python cross_validation_solution.py
 
 | Keywords in Problem | Solution File |
 |---------------------|---------------|
+| "linear discriminant", "w^T*x + w_0", "decision boundary", "LDF" | `ldf_solution.py` |
 | "classify using nearest", "k neighbors", "Euclidean distance" | `knn_solution.py` |
 | "weight update", "misclassified", "sign(w·x+b)" | `perceptron_solution.py` |
 | "centroid", "cluster assignment", "WCSS" | `kmeans_solution.py` |
