@@ -193,7 +193,8 @@ def performance_metrics():
     macro_recall = np.mean([m['recall'] for m in class_metrics])
     macro_f1 = np.mean([m['f1'] for m in class_metrics])
 
-    print(f"  Macro Precision = ({' + '.join([f'{m["precision"]:.4f}' for m in class_metrics])}) / {n_classes}")
+    precision_parts = ' + '.join([f'{m["precision"]:.4f}' for m in class_metrics])
+    print(f"  Macro Precision = ({precision_parts}) / {n_classes}")
     print(f"                   = {macro_precision:.4f}")
     print(f"  Macro Recall    = {macro_recall:.4f}")
     print(f"  Macro F1        = {macro_f1:.4f}")
